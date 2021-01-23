@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+### Django Migrations - remove for production
+00*.py
+notes.txt
+md5.py
+
 # Distribution / packaging
 .Python
 build/
