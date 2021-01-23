@@ -6,8 +6,8 @@ from api.models.audit import Audit
 
 type_defs = [
     load_schema_from_path("api/graphql/schema.graphql"),
-    load_schema_from_path("api/graphql/characters.graphql"),
-    load_schema_from_path("api/graphql/comics.graphql")
+    #load_schema_from_path("api/graphql/characters.graphql"),
+    #load_schema_from_path("api/graphql/comics.graphql")
 ]
 
 query = QueryType()
