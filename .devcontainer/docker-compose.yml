@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  app:
+    container_name: marvel-api
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+    links:
+      - db
+    volumes:
+      - ~/.gitconfig:/root/.gitconfig
+      - ..:/workspace
+    command: sleep infinity
+    environment:
+      DJANGO_SETTINGS_MODULE: app.settings.development
+
+  db:
+    container_name: marvel-api-db
+    image: mongo:4.4.2
+    restart: always
+    ports: 
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: marvel
+
+volumes:
+  mongodb-data:
