@@ -17,7 +17,10 @@ class MarvelApiHelper():
         output = {
             'code': data['code'],
             'status': data['status'],
-            'etag': data['etag']
+            'etag': data['etag'],
+            'offset': data['data']['offset'],
+            'total': data['data']['total'],
+            'count': data['data']['count']
         }
 
         output['characters'] = list()
@@ -49,7 +52,10 @@ class MarvelApiHelper():
         output = {
             'code': data['code'],
             'status': data['status'],
-            'etag': data['etag']
+            'etag': data['etag'],
+            'offset': data['data']['offset'],
+            'total': data['data']['total'],
+            'count': data['data']['count']
         }
 
         output['comics'] = list()
