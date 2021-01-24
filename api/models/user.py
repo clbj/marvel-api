@@ -7,4 +7,4 @@ class User(models.Model):
 
 
     def __str__(self):
-        return f"I'm {self.name}"
+        return f"I'm {self.username}"

@@ -4,12 +4,12 @@ from api.models.audit import Audit
 
 class AuditTestCase(TestCase):
     def setUp(self):
-        myuser = User.objects.create(name="TestUser")
+        myuser = User.objects.create(username="TestUserAudit")
         Audit.objects.create(
-            username="TestUser"
+            user="TestUserAudit"
         )
 
     
     def test_audit_creation(self):
-        myaudit = Audit.objects.get(name="TestAudit")
-        self.assertEqual(str(myaudit), "I'm an audit log of TestUser")
+        myaudit = Audit.objects.get()
+        self.assertEqual(str(myaudit), "I'm an audit log")

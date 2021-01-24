@@ -1,7 +1,7 @@
 django
 gunicorn
-sqlparse
-pymongo
+sqlparse==0.2.4
+pymongo>=3.2.0
 ariadne
 ariadne-jwt
 python-decouple
