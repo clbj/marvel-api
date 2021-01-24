@@ -22,7 +22,7 @@ class MarvelAuthGenerator():
         input_str = str(timestamp)+settings.MARVEL['private-key']+settings.MARVEL['public-key']
 
         return {
-            'api-key': settings.MARVEL['public-key'],
-            'ts': timestamp,
+            'apikey': settings.MARVEL['public-key'],
+            'ts': str(timestamp),
             'hash': hashlib.md5(input_str.encode()).hexdigest()
         }
