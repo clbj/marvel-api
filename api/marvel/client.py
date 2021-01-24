@@ -103,31 +103,3 @@ class MarvelClient():
                 query['offset'] = query['offset'] + int(settings.MARVEL['limit'])
         
         return result
-
-
-
-
-    def get_comics2(self, name: str, limit=100) -> dict:
-        """
-        Execute a request to Marvel's api and collect the
-        comics information of a character
-
-        :param name: Name of the character
-        :type name: str
-        :return: A dictionary with the results
-        :rtype: dict
-        """
-
-        # get the character id
-        characters = self.get_characters(name)
-        query = {'title': name, 'limit': limit}
-
-        for i in range(len(characters['characters'])):
-            if i == 0:
-                query['characters'] = str(characters['characters'][i]['id'])
-            else:
-                query['characters'] = query['characters'] + "," + str(characters['characters'][i]['id'])
-
-        response = self.__get(query, 'comics')
-        result = json.loads(response.text)
-        return MarvelApiHelper.filter_comics_response(result)
