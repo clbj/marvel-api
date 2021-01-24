@@ -1,0 +1,21 @@
+scalar GenericScalar
+    
+type VerifyToken {
+    payload: GenericScalar
+}
+
+type RefreshToken {
+    token: String
+    refresh_token: String
+    payload: GenericScalar
+}
+
+type TokenAuth {
+    token: String
+    refresh_token: String
+    payload: GenericScalar
+}
+
+type RevokeToken {
+    revoked: Int
+}

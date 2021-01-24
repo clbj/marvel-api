@@ -2,8 +2,8 @@ scalar DateTime
 
 # types
 type Query{
-    character: String!
-    characters: [String]!
+    characters: [Character]
+
 }
 
 
