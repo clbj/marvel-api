@@ -2,6 +2,11 @@ from .common import *
 
 DEBUG = True
 
+MARVEL = {
+    'url': 'https://gateway.marvel.com/v1/public/',
+    'api-key': 'YOUR-KEY-HERE'
+}
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
