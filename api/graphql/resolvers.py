@@ -13,6 +13,9 @@ type_defs = [
 query = QueryType()
 mutation = MutationType()
 
+mutation.set_field('verifyToken', resolve_verify)
+mutation.set_field('refreshToken', resolve_refresh)
+mutation.set_field('tokenAuth', resolve_token_auth)
 
 @query.field('users')
 def resolve_users(*_):
@@ -24,4 +27,4 @@ def resolve_users(*_):
     return Audit.objects.all()
 
 
-schema = make_executable_schema(type_defs, query, mutation)
+schema = make_executable_schema(type_defs,jwt_schema,query,mutation,GenericScalar)
