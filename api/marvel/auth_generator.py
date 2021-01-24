@@ -19,7 +19,7 @@ class MarvelAuthGenerator():
         :rtype: dict
         """
         timestamp = datetime.datetime.now().timestamp()
-        input_str = timestamp+settings.MARVEL['private-key']+settings.MARVEL['public-key']
+        input_str = str(timestamp)+settings.MARVEL['private-key']+settings.MARVEL['public-key']
 
         return {
             'api-key': settings.MARVEL['public-key'],
