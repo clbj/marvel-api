@@ -19,6 +19,7 @@ mutation.set_field('refreshToken', resolve_refresh)
 mutation.set_field('tokenAuth', resolve_token_auth)
 
 @query.field('characters')
+@login_required
 def resolve_characters(_, info, name):
     client = MarvelClient()
     result = client.get_characters(name=name)
