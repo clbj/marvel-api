@@ -5,7 +5,8 @@ DEBUG = True
 MARVEL = {
     'url': 'https://gateway.marvel.com/v1/public/',
     'private-key': 'YOUR-PRIVATE-KEY-HERE',
-    'public-key': 'YOUR-PUBLIC-KEY-HERE'
+    'public-key': 'YOUR-PUBLIC-KEY-HERE',
+    'limit': 100
 }
 
 DATABASES = {
