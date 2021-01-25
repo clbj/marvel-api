@@ -26,6 +26,6 @@
 		"ms-azuretools.vscode-docker",
 		"graphql.vscode-graphql"
 	],
-	"postCreateCommand": "pip install -r requirements.txt",
+	"postCreateCommand": "pip install -r requirements.txt && pip install ariadne-jwt --no-deps",
 	"forwardPorts": [8000,27017]
 }

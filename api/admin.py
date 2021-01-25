@@ -1,5 +1,5 @@
 from django.contrib import admin
-from api.models.User import User
+from api.models.user import User
 from api.models.audit import Audit
 
 

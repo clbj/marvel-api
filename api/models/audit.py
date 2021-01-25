@@ -8,4 +8,4 @@ class Audit(models.Model):
 
 
     def __str__(self):
-        return f"I'm an audit log of {self.user}"
+        return f"I'm an audit log"
