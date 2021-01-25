@@ -78,6 +78,9 @@ class MarvelClient():
         }
 
         number_records = int(settings.MARVEL['limit'])
+        if limit is not None and limit < int(settings.MARVEL['limit']):
+            number_records = limit
+            query['limit'] = limit
 
         response = self.__get(query, 'comics')
         result = json.loads(response.text)
@@ -87,7 +90,7 @@ class MarvelClient():
             if limit > int(settings.MARVEL['limit']) and limit < result['total']:
                 number_records = limit
             elif limit >= result['total']:
-                number_records = result['total']        
+                number_records = result['total']           
 
         if number_records > int(settings.MARVEL['limit']):
             executions = int(float(number_records/100))
@@ -101,5 +104,5 @@ class MarvelClient():
                 result['comics'].extend(result_execution['comics'])
                 executions = executions-1
                 query['offset'] = query['offset'] + int(settings.MARVEL['limit'])
-        
+
         return result

@@ -1,8 +1,76 @@
 scalar DateTime
 
+type Character {
+    id: ID!
+    name: String!
+    description: String!
+    modified: DateTime!
+}
+
+type Comic {
+    id: ID!
+    digitalId: Int!
+    title: String!
+    issueNumber: Int!
+    issn: String
+    pageCount: Int
+    format: String
+    modified: DateTime!
+}
+
+type MarvelEntity {
+    characters: [Character]
+    comics: [Comic]
+}
+
 # types
 type Query{
-    characters: [Character]
+    """
+    Method to search for character and comics information from Marvel's API.
+
+    :param name: A Marvel's character name.
+
+    :type name: String
+
+    :param limit: To limit the number of records returned.
+
+    :type limit: Int
+
+    :return [Character]: A list of Marvel's Characters and Comics.
+
+    :rtype: List of type MarvelEntity
+    """
+    getAll(name: String!, limit: Int): MarvelEntity
+
+    """
+    Method to search for Marvel's characters.
+
+    :param name: A Marvel's character name.
+
+    :type name: String
+
+    :return [Character]: A list of Marvel's characters.
+
+    :rtype: List of type Character
+    """
+    characters(name: String!): [Character]
+
+    """
+    Method to search for Marvel's comics using a character name.
+
+    :param name: A Marvel's character name.
+
+    :type name: String
+
+    :param limit: To limit the number of records returned.
+
+    :type limit: Int
+
+    :return [Comic]: A list of Marvel's comics.
+
+    :rtype: List of type Comic
+    """
+    comics(name: String!, limit: Int): [Comic]
 
 }
 

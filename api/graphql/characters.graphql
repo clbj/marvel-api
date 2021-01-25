@@ -1,3 +1,0 @@
-type Character {
-    name: String!
-}
