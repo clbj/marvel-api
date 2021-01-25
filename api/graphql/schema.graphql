@@ -1,25 +1,40 @@
 scalar DateTime
+scalar GenericScalar
 
 type Character {
+    "Unique identifier of a Marvel Character"
     id: ID!
+    "Name of a Marvel Character"
     name: String!
+    "Detailed description of the character"
     description: String!
+    "Date of the last change done in the record"
     modified: DateTime!
 }
 
 type Comic {
+    "Unique identifier of a Marvel Comic"
     id: ID!
+    "Unique identifier of a Digital Marvel Comic"
     digitalId: Int!
+    "The title of the comic"
     title: String!
+    "Issue number Marvel Comic"
     issueNumber: Int!
+    "ISSN number"
     issn: String
+    "Number of pages of a Marvel Comic"
     pageCount: Int
+    "Format"
     format: String
+    "Date of the last change done in the record"
     modified: DateTime!
 }
 
 type MarvelEntity {
+    "A list of Marvel's characters"
     characters: [Character]
+    "A list o Marvel's comics"
     comics: [Comic]
 }
 
@@ -74,10 +89,43 @@ type Query{
 
 }
 
-
-# mutations
 type Mutation {
+    """
+    Method for JWT token verification
+
+    :param token: JWT token
+
+    :type token: String
+
+    :return VerifyToken: The info of a token
+
+    :rtype: A VerifyToken
+    """
     verifyToken(token: String!): VerifyToken
+
+    """
+    Method for JWT token refresh
+
+    :param token: JWT token
+
+    :type token: String
+
+    :return RefreshToken: The info of a token
+
+    :rtype: A RefreshToken
+    """
     refreshToken(token: String!): RefreshToken
+
+    """
+    Method for JWT token authentication
+
+    :param token: JWT token
+
+    :type token: String
+
+    :return TokenAuth: The info of a token
+
+    :rtype: A TokenAuth
+    """
     tokenAuth(username: String!, password:String!): TokenAuth
 }

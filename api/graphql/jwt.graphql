@@ -1,16 +1,16 @@
-scalar GenericScalar
-    
 type VerifyToken {
     payload: GenericScalar
 }
 
 type RefreshToken {
+    "A JWT token"
     token: String
     refresh_token: String
     payload: GenericScalar
 }
 
 type TokenAuth {
+    "A JWT token"
     token: String
     refresh_token: String
     payload: GenericScalar
