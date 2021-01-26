@@ -1,3 +1,3 @@
 from .common import *
 
-DEBUG = True
+DEBUG = False

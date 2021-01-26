@@ -40,6 +40,25 @@
                 "migrate"
             ],
             "django": true
+        },
+        {
+            "name": "Create Admin User",
+            "env": {
+                "DJANGO_SUPERUSER_USER": "admin",
+                "DJANGO_SUPERUSER_PASSWORD": "admin123",
+                "DJANGO_SUPERUSER_EMAIL": "admin@admin.com",
+
+            },
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "args": [
+                "createsuperuser",
+                "--username=admin",
+                "--email=admin@admin.com",
+				"--no-input"
+            ],
+            "django": true
         }
     ]
 }

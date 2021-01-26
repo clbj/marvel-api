@@ -19,6 +19,7 @@ mutation.set_field('refreshToken', resolve_refresh)
 mutation.set_field('tokenAuth', resolve_token_auth)
 
 @query.field('characters')
+@login_required
 def resolve_characters(_, info, name):
     client = MarvelClient()
     result = client.get_characters(name=name)
@@ -26,6 +27,7 @@ def resolve_characters(_, info, name):
 
 
 @query.field('comics')
+@login_required
 def resolve_comics(_, info, name, limit=None):
     client = MarvelClient()
     result = client.get_comics(name=name, limit=limit)
@@ -34,6 +36,7 @@ def resolve_comics(_, info, name, limit=None):
 
 
 @query.field('getAll')
+@login_required
 def resolve_all(_, info, name, limit=None):
     client = MarvelClient()
     result_characters = client.get_characters(name=name)
