@@ -4,7 +4,7 @@ This project provides a GraphQl API interface representing a simpler version of 
 
 It providers information about Marvel's Characters and Comics by searching for the character's name.
 
-## Technical Stack
+## Technology Stack
 
 A set of distinct tools and libraries were used when developing this project, such as:
 - Docker
@@ -33,7 +33,7 @@ MARVEL = {
 }
 ```
 
-It is also important to set up your database. By default this project is using MongoDB, but you can replace it with any database of your choice. You can change the database configuration in the same **settings/common.py**.
+It is also important to set up your database. By default this project is using MongoDB, but you can replace it with any database of your choice. You can change the database configuration in the same **settings/common.py** file.
 
 ```python
 DATABASES = {
