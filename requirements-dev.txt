@@ -1,9 +1,0 @@
-django
-gunicorn
-djongo
-ariadne
-ariadne-jwt
-python-decouple
-graphql-core
-python-dateutil
-requests

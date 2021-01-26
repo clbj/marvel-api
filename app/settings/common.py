@@ -29,7 +29,6 @@ SECRET_KEY = 'b0dmwjc)nv!tf1&1if972v5e$-5o&oj!_$sq85b+j!&%b0df1m'
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -117,3 +115,37 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+##################################
+# PROJECT's SPECIFIC CONFIGURATION
+##################################
+
+API_VERSION = 1.0
+
+MARVEL = {
+    'url': 'https://gateway.marvel.com/v1/public/',
+    'private-key': 'ce5928c590b43f2edb8ac4276752fb2ffbd98fd5',
+    'public-key': '62bcb91e23cab72aa28404837b1b3944',
+    'limit': 100
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'marvelapi',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'marvel-api-db',
+            'port': 27017
+        },
+    },
+    'LOGGING': {
+        'version': 1,
+        'loggers': {
+            'djongo': {
+                'level': 'DEBUG',
+                'propagate': False,                        
+            }
+        }
+    }
+}
