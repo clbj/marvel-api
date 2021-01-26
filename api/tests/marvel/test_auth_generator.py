@@ -9,8 +9,3 @@ class MarvelAuthGeneratorTestCase(TestCase):
 
         result = [match.group(1) for match in hash_check]
         self.assertTrue(result)
-
-
-
-
-       #re.findall(r'(?i)(?<![a-z0-9])[a-f0-9]{32}(?![a-z0-9])', myhash['hash'])
