@@ -124,8 +124,8 @@ API_VERSION = 1.0
 
 MARVEL = {
     'url': 'https://gateway.marvel.com/v1/public/',
-    'private-key': 'ce5928c590b43f2edb8ac4276752fb2ffbd98fd5',
-    'public-key': '62bcb91e23cab72aa28404837b1b3944',
+    'private-key': 'YOUR-PRIVATE-KEY',
+    'public-key': 'YOUR-PUBLIC-KEY',
     'limit': 100
 }
 

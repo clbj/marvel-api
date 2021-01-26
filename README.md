@@ -125,6 +125,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'allowebhost.com']
 There are a lot of opportunities to extend this project. It is possible to highlight these ones:
 - Unit testing with mocked webservices.
 - Usage of **concurrent.futures** library to execute parallel requests to Marvel's API.
+- Add audit capabilities to monitor API calls.
 
 ## License
 [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
