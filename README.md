@@ -55,7 +55,7 @@ You can also choose different execution profiles by changing the **DJANGO_SETTIN
 
 This a GraphQL API, so it uses a single URL for its resources. The default URL to access the API is **http://YOUR-HOST/api**. Since it is a self-documented API, you can use your browser to access a query interface and the resources documentation and schema specification.
 
-The application uses JWT for access authorization, so it will necessary to request access to a user previously created by running Django's create user command. For example, you can create an **admin** user by using the **Create Admin User** configuration available in the **launch.json** file or by running django's command as shown below.
+The application uses JWT for access authorization, so it will be necessary to request access to a user previously created by running Django's create user command. For example, you can create an **admin** user by using the **Create Admin User** configuration available in the **launch.json** file or by running django's command as shown below.
 
 ```bash
 python manage.py createsuperuser
