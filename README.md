@@ -6,7 +6,7 @@ It providers information about Marvel's Characters and Comics by searching for t
 
 ## Technical Stack
 
-A different set of tools and libraries were used when developing this project, such as:
+A set of distinct tools and libraries were used when developing this project, such as:
 - Docker
 - Kubernetes
 - Python
@@ -18,7 +18,7 @@ A different set of tools and libraries were used when developing this project, s
 
 VsCode was used as an editor when developing this project, but you can use any editor of your preference. Using VsCode will bring advantages since this project has a complete setup of VsCode's Remote Containers feature.
 
-In **launch.json** you will find configurations for creating user, running the server, running tests, create migrations and migrate.
+In **launch.json** you will find configurations for creating users, running the server, running tests, create migrations and migrate.
 
 ## Configuring the API
 
@@ -33,7 +33,7 @@ MARVEL = {
 }
 ```
 
-It is also important to setup your database. By default this project is using MongoDB, but you can replace it with any database of your choice. You can change the database configuration in the same **settings/common.py**.
+It is also important to set up your database. By default this project is using MongoDB, but you can replace it with any database of your choice. You can change the database configuration in the same **settings/common.py**.
 
 ```python
 DATABASES = {
@@ -55,7 +55,7 @@ You can also choose different execution profiles by changing the **DJANGO_SETTIN
 
 This a GraphQL API, so it uses a single URL for its resources. The default URL to access the API is **http://YOUR-HOST/api**. Since it is a self-documented API, you can use your browser to access a query interface and the resources documentation and schema specification.
 
-The application uses JWT for access authorization, so it will necessary to request access to a user previous create by running django's create user command. For example, you can create an **admin** user by using the **Create Admin User** configuration available in the **launch.json** file or by running django's command as shown below.
+The application uses JWT for access authorization, so it will necessary to request access to a user previously created by running Django's create user command. For example, you can create an **admin** user by using the **Create Admin User** configuration available in the **launch.json** file or by running django's command as shown below.
 
 ```bash
 python manage.py createsuperuser
@@ -65,7 +65,7 @@ The command will prompt asking for inputs.
 
 ### Generate a Token for Access
 
-The API has secured resources that are only accessible by using a valid JWT. After creating a django user, you will be able to request a JWT for subsequent requests. You can do this by calling the tokenAuth service as described below:
+The API has secured resources that are only accessible by using a valid JWT. After creating a Django user, you will be able to request a JWT to be used for subsequent requests. You can do this by calling the tokenAuth service as described below:
 
 ```graphql
 mutation {
@@ -93,9 +93,32 @@ When calling an application's resource, it is important to include the **Authori
 Authorization: "JWT 3j5yd6XAiOiJKV1QiLCJhbGciJ9..."
 ```
 
+Example of an API call:
+
+```graphql
+query {
+  characters(name: "Sider-man"){
+    name
+    description
+  }
+}
+```
+
 # Container Deployment
 
-This project contains a Dockerfile and a Docker Compose file that enables the creation of a docker image.
+This project contains a Dockerfile and a Docker Compose file that enables the creation of a docker image. If you are using VsCode's Remote-containers for development, the image is already created in your local machine. You can also build the image by running the below command inside the project's **.devcontainer** folder.
+
+```bash
+docker-compose build
+```
+
+## Production Deployment
+
+One suggestion of production deployment is using a container infrastructure supporting [Kubernetes](https://kubernetes.io/). In this project root folder you will find Yaml files with samples for a production deployment using Kubernetes to automate the deployment and scale the application. Remember to update Django's configuration with the allowed hosts as shown in the below example.
+
+```python
+ALLOWED_HOSTS = ['127.0.0.1', 'allowebhost.com']
+```
 
 ## Future Improvements
 
